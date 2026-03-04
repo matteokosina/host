@@ -10,7 +10,7 @@ const BLOG_POSTS = [
     title: 'Week 1, MVP',
     excerpt: 'Kicking off the H.O.S.T. development journey with a focus on establishing the core mechanics and architecture for our MVP.',
     date: 'February 27, 2026',
-    image: '/img/blog-1.svg',
+    image: '/host/img/blog-1.svg',
     url: '/blog/project-init',
   },
 ];
