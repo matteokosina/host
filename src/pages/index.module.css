@@ -1,0 +1,886 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #000000 0%, #1a1a2e 50%, #0f0f1e 100%);
+  overflow: hidden;
+  color: #00ffff;
+  font-family: 'Arial', sans-serif;
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(2px 2px at 15% 25%, rgba(255, 255, 255, 1), transparent 2px),
+    radial-gradient(2px 2px at 45% 15%, rgba(0, 255, 255, 0.9), transparent 2px),
+    radial-gradient(2px 2px at 70% 35%, rgba(255, 0, 255, 0.9), transparent 2px),
+    radial-gradient(2px 2px at 25% 75%, rgba(255, 255, 0, 0.8), transparent 2px),
+    radial-gradient(2px 2px at 85% 65%, rgba(255, 255, 255, 1), transparent 2px),
+    radial-gradient(2px 2px at 60% 85%, rgba(0, 255, 255, 0.9), transparent 2px),
+    radial-gradient(2px 2px at 10% 50%, rgba(255, 0, 255, 0.9), transparent 2px),
+    radial-gradient(2px 2px at 90% 25%, rgba(255, 255, 0, 0.8), transparent 2px);
+  background-repeat: repeat;
+  background-size: 200% 200%;
+  opacity: 0.8;
+  animation: twinkle 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.gridBackground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(90deg, transparent 48%, rgba(0, 255, 255, 0.15) 49%, rgba(0, 255, 255, 0.15) 51%, transparent 52%),
+    linear-gradient(0deg, transparent 48%, rgba(0, 255, 255, 0.15) 49%, rgba(0, 255, 255, 0.15) 51%, transparent 52%);
+  background-size: 80px 80px;
+  background-position: 0 0;
+  z-index: 2;
+}
+
+/* Subtle radial gradient overlay for depth */
+.gridBackground::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 3rem 2rem;
+  max-width: 650px;
+  width: 100%;
+}
+
+.logoArea {
+  margin-bottom: 3rem;
+  perspective: 1200px;
+  position: relative;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  /* Beige plastic outer casing */
+  background: linear-gradient(180deg, #d9c6ad 0%, #c9b598 50%, #b8a882 100%);
+  padding: 25px;
+  border-radius: 50px;
+  box-shadow: 
+    /* Main shadow for 3D depth */
+    0 60px 150px rgba(0, 0, 0, 0.6),
+    20px 50px 100px rgba(0, 0, 0, 0.5),
+    /* Top highlight for plastic sheen */
+    inset 0 2px 10px rgba(255, 255, 255, 0.5),
+    /* Bottom shadow */
+    inset 0 -4px 15px rgba(0, 0, 0, 0.3),
+    /* Side highlights */
+    inset 2px 0 10px rgba(255, 255, 255, 0.3),
+    inset -2px 0 10px rgba(0, 0, 0, 0.2);
+  transform: perspective(1500px) rotateX(2deg) rotateY(-1deg) rotateZ(-1.5deg);
+}
+
+/* Plastic texture overlay */
+.logoArea::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.02) 10px,
+      rgba(255, 255, 255, 0.02) 20px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgba(0, 0, 0, 0.02) 10px,
+      rgba(0, 0, 0, 0.02) 20px
+    );
+  border-radius: 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* TV Stand base - Retro pedestal */
+.logoArea::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35%;
+  height: 40px;
+  background: linear-gradient(90deg, #b8a882 0%, #d4c5a9 30%, #e8d9bf 50%, #d4c5a9 70%, #b8a882 100%);
+  border-radius: 0 0 15px 15px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    inset 0 2px 4px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 5;
+  border: 2px solid #9d8a6f;
+  border-top: 2px solid #d4c5a9;
+}
+
+.crtEffect {
+  border: 30px solid;
+  border-color: #c9b598 #d9c6ad #e8d9bf #d9c6ad;
+  padding: 2.5rem 3rem;
+  background: linear-gradient(135deg, rgba(10, 15, 25, 0.98), rgba(20, 30, 50, 0.98));
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-radius: 40px;
+  box-shadow:
+    /* Screen glow */
+    0 0 50px rgba(0, 255, 65, 0.2),
+    /* Outer shadow for depth and 3D effect */
+    0 50px 120px rgba(0, 0, 0, 0.7),
+    15px 40px 80px rgba(0, 0, 0, 0.6),
+    /* Bezel plastic depth and sheen */
+    inset 0 2px 8px rgba(255, 255, 255, 0.3),
+    inset 0 -4px 12px rgba(0, 0, 0, 0.4),
+    inset -2px 0 6px rgba(0, 0, 0, 0.2),
+    inset 2px 0 6px rgba(255, 255, 255, 0.1),
+    /* Screen inner glow */
+    inset 0 0 40px rgba(0, 217, 255, 0.04),
+    inset 0 0 60px rgba(0, 255, 65, 0.015);
+  transform: perspective(1200px) rotateX(3deg) rotateZ(-2deg);
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.crtEffect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 65, 0.02),
+    rgba(0, 255, 65, 0.02) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+/* Control Unit - 70s Beige Panel */
+.controlUnit {
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(180deg, #d4af91 0%, #c4994a 50%, #b8885a 100%);
+  border: 3px solid #8b6f47;
+  border-radius: 20px;
+  box-shadow:
+    /* Outer shadow */
+    0 15px 40px rgba(0, 0, 0, 0.6),
+    /* Top highlight */
+    inset 0 2px 0 rgba(255, 255, 255, 0.3),
+    /* Bottom shadow */
+    inset 0 -2px 0 rgba(0, 0, 0, 0.3),
+    /* 3D depth */
+    -8px 8px 15px rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+
+.controlPanel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Joystick */
+.joystickHolder {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #e8d4b8, #c4a977);
+  border: 2px solid #8b6f47;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.4),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.joystick {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.joystickBase {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at 35% 35%, #e8d4b8, #b8885a);
+  border-radius: 50%;
+  border: 2px solid #8b6f47;
+  box-shadow:
+    inset 0 2px 3px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.joystickStick {
+  position: relative;
+  width: 8px;
+  height: 35px;
+  background: linear-gradient(90deg, #4a4a4a, #2a2a2a);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  animation: joystickSway 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes joystickSway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(8deg); }
+}
+
+/* Button Panel */
+.buttonPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.buttonRow {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ff4444, #cc0000);
+  border: 2px solid #8b4444;
+  box-shadow:
+    inset 0 2px 3px rgba(255, 200, 200, 0.4),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.3),
+    0 3px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 2px 3px rgba(255, 200, 200, 0.4),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.3),
+    0 5px 12px rgba(0, 0, 0, 0.5);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow:
+    inset 0 -2px 3px rgba(255, 200, 200, 0.4),
+    inset 0 2px 3px rgba(0, 0, 0, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.button.blinking {
+  animation: buttonBlink 1s ease-in-out infinite;
+}
+
+@keyframes buttonBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Indicators */
+.indicators {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #5a5a5a;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.indicatorGreen {
+  background: radial-gradient(circle at 30% 30%, #00ff41, #00aa00);
+  box-shadow: 
+    inset 0 1px 2px rgba(0, 0, 0, 0.3),
+    0 0 10px #00ff41;
+  animation: indicatorBlink 0.8s ease-in-out infinite;
+}
+
+.indicatorRed {
+  background: radial-gradient(circle at 30% 30%, #ff4444, #cc0000);
+  box-shadow: 
+    inset 0 1px 2px rgba(0, 0, 0, 0.3),
+    0 0 8px #ff4444;
+  animation: indicatorBlink 1.2s ease-in-out infinite;
+}
+
+.indicatorYellow {
+  background: radial-gradient(circle at 30% 30%, #ffff00, #ffaa00);
+  box-shadow: 
+    inset 0 1px 2px rgba(0, 0, 0, 0.3),
+    0 0 8px #ffff00;
+  animation: indicatorBlink 1.5s ease-in-out infinite;
+}
+
+@keyframes indicatorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.crtEffect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 50% 0%, rgba(0, 255, 65, 0.1), transparent 70%),
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(0, 255, 65, 0.01) 50%,
+      transparent 100%
+    );
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.97; }
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 900;
+  margin: 0 0 0.5rem 0;
+  color: #00ffff;
+  text-shadow: 
+    3px 3px 0 #ff00ff,
+    6px 6px 0 #ffff00,
+    0 0 20px rgba(0, 255, 255, 0.8),
+    0 0 40px rgba(255, 0, 255, 0.4);
+  letter-spacing: 0.15em;
+  line-height: 1;
+  animation: titleGlow 2.5s ease-in-out infinite;
+  text-transform: uppercase;
+  position: relative;
+}
+
+@keyframes titleGlow {
+  0%, 100% {
+    text-shadow: 
+      3px 3px 0 #ff00ff,
+      6px 6px 0 #ffff00,
+      0 0 20px rgba(0, 255, 255, 0.8),
+      0 0 40px rgba(255, 0, 255, 0.4);
+    color: #00ffff;
+  }
+  50% {
+    text-shadow: 
+      4px 4px 0 #ffff00,
+      8px 8px 0 #ff00ff,
+      0 0 30px rgba(0, 255, 255, 1),
+      0 0 60px rgba(255, 0, 255, 0.6);
+    color: #ffffff;
+  }
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #ffff00;
+  margin-top: 0.5rem;
+  letter-spacing: 0.1em;
+  text-shadow: 
+    2px 2px 0 rgba(255, 0, 255, 0.6),
+    0 0 10px rgba(255, 255, 0, 0.6);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #00ffff;
+  margin: 2.5rem 0 2rem 0;
+  line-height: 1.8;
+  text-shadow: 
+    2px 2px 0 rgba(255, 0, 255, 0.4),
+    0 0 8px rgba(0, 255, 255, 0.5);
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.blinkCursor {
+  display: inline-block;
+  animation: blink 0.6s infinite;
+  color: #ff00ff;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 1rem 2.5rem;
+  font-size: 0.95rem;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 0.15em;
+  border: 4px solid;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 900;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    4px 4px 0 rgba(0, 0, 0, 0.5),
+    6px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+.primaryButton::before,
+.secondaryButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 0;
+}
+
+.primaryButton:hover::before,
+.secondaryButton:hover::before {
+  opacity: 1;
+}
+
+.primaryButton,
+.secondaryButton {
+  z-index: 1;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, #00ffff, #00ff00);
+  color: #000000;
+  border-color: #00ffff;
+  text-shadow: 
+    2px 2px 0 rgba(0, 255, 255, 0.3);
+}
+
+.primaryButton:hover {
+  background: linear-gradient(135deg, #ffff00, #00ffff);
+  border-color: #ffff00;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 0.8),
+    4px 4px 0 rgba(0, 0, 0, 0.7),
+    6px 6px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-4px);
+}
+
+.secondaryButton {
+  background: transparent;
+  color: #00ffff;
+  border-color: #ff00ff;
+  text-shadow: 
+    2px 2px 0 rgba(255, 0, 255, 0.3);
+  box-shadow: 
+    0 0 15px rgba(255, 0, 255, 0.4),
+    4px 4px 0 rgba(0, 0, 0, 0.4),
+    6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.secondaryButton:hover {
+  background: rgba(255, 0, 255, 0.2);
+  color: #ffff00;
+  border-color: #ffff00;
+  box-shadow: 
+    0 0 25px rgba(255, 255, 0, 0.7),
+    0 0 40px rgba(255, 0, 255, 0.5),
+    4px 4px 0 rgba(0, 0, 0, 0.6),
+    6px 6px 0 rgba(0, 0, 0, 0.4);
+  transform: translate(-2px, -2px);
+}
+
+.floatingElements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.orbitingObject {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #39ff14, #00ff41);
+  border-radius: 50%;
+  box-shadow: 0 0 12px #00ff41, 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+.orbit1 {
+  animation: orbit1 25s linear infinite;
+  left: 50%;
+  top: 50%;
+}
+
+.orbit2 {
+  animation: orbit2 35s linear infinite reverse;
+  left: 50%;
+  top: 50%;
+}
+
+.orbit3 {
+  animation: orbit3 25s linear infinite;
+  left: 50%;
+  top: 50%;
+}
+
+@keyframes orbit1 {
+  0% { transform: translate(-200px, -200px); }
+  100% { transform: translate(200px, 200px); }
+}
+
+@keyframes orbit2 {
+  0% { transform: translate(150px, -150px); }
+  100% { transform: translate(-150px, 150px); }
+}
+
+@keyframes orbit3 {
+  0% { transform: translate(-150px, 150px); }
+  100% { transform: translate(150px, -150px); }
+}
+
+/* Blog Section */
+.blogSection {
+  background: #000000;
+  padding: 6rem 2rem;
+  position: relative;
+  border-top: 4px dashed #00ffff;
+  box-shadow: none;
+  width: 100%;
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.sectionTitle h2 {
+  font-size: 3.2rem;
+  margin: 0;
+  color: #00ffff;
+  text-shadow: 
+    3px 3px 0 #ff00ff,
+    0 0 15px rgba(0, 255, 255, 0.6);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-family: 'Arial', sans-serif;
+}
+
+.divider {
+  width: 350px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent 0%, #00ffff 15%, #ff00ff 50%, #ffff00 85%, transparent 100%);
+  margin: 2rem auto;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 255, 0.5),
+    4px 4px 0 rgba(255, 0, 255, 0.3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 3rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Callout Section Wrapper */
+.calloutSectionWrapper {
+  background: #000000;
+  width: 100%;
+  padding: 4rem 0;
+}
+
+/* Callout Sections Container */
+.calloutContainer {
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: #000000;
+  width: 100%;
+  min-height: auto;
+  box-sizing: border-box;
+}
+
+/* Callout Sections */
+.calloutSection {
+  padding: 3rem 2rem;
+  flex: 1;
+  min-width: 350px;
+  max-width: 500px;
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+  border: 4px solid;
+  box-shadow: 
+    6px 6px 0 rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.calloutSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 255, 0.04),
+    rgba(0, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.calloutContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.calloutTitle {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.15em;
+  color: #00ffff;
+  text-shadow: 
+    3px 3px 0 #ff00ff,
+    0 0 15px rgba(0, 255, 255, 0.6);
+  text-transform: uppercase;
+  font-family: 'Arial', sans-serif;
+}
+
+.calloutText {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 0.03em;
+  flex-grow: 1;
+}
+
+.calloutLink {
+  display: inline-block;
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  padding: 0.7rem 1.3rem;
+  border: 3px solid #00ffff;
+  border-radius: 0;
+  transition: all 0.2s ease;
+  text-shadow: 
+    2px 2px 0 rgba(255, 0, 255, 0.3);
+  box-shadow: 
+    4px 4px 0 rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(0, 255, 255, 0.3);
+  text-transform: uppercase;
+  font-family: 'Arial', sans-serif;
+}
+
+.calloutLink:hover {
+  color: #ffff00;
+  border-color: #ffff00;
+  text-shadow: 
+    2px 2px 0 rgba(0, 255, 255, 0.5),
+    0 0 8px rgba(255, 255, 0, 0.6);
+  box-shadow: 
+    0 0 20px rgba(255, 255, 0, 0.6),
+    4px 4px 0 rgba(0, 0, 0, 0.6);
+  transform: translate(-2px, -2px);
+}
+
+/* Game Vision Section */
+.gameVision {
+  background: #000000;
+  border: 4px solid #00ffff;
+  border-left: 6px solid #00ff00;
+  box-shadow: 
+    0 0 30px rgba(0, 255, 255, 0.3),
+    inset 0 0 20px rgba(0, 255, 255, 0.05);
+}
+
+/* AI Policy Section */
+.aiPolicy {
+  background: #000000;
+  border: 4px solid #ff00ff;
+  border-left: 6px solid #ffff00;
+  box-shadow: 
+    0 0 30px rgba(255, 0, 255, 0.3),
+    inset 0 0 20px rgba(255, 0, 255, 0.05);
+}
+
+.aiPolicy .calloutTitle {
+  color: #ffff00;
+  text-shadow: 
+    3px 3px 0 #ff00ff,
+    0 0 15px rgba(255, 255, 0, 0.6);
+}
+
+.aiPolicy .calloutLink {
+  color: #ffff00;
+  border-color: #ffff00;
+  text-shadow: 
+    2px 2px 0 rgba(255, 0, 255, 0.3);
+  box-shadow: 
+    4px 4px 0 rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(255, 255, 0, 0.3);
+}
+
+.aiPolicy .calloutLink:hover {
+  color: #ffa500;
+  border-color: #ffa500;
+  text-shadow: 0 0 12px rgba(255, 165, 0, 0.6);
+  box-shadow: 0 0 25px rgba(255, 165, 0, 0.4);
+}
+
+.aiPolicy .calloutLink:hover {
+  color: #ffa500;
+  border-color: #ffa500;
+  text-shadow: 0 0 12px rgba(255, 165, 0, 0.6);
+  box-shadow: 0 0 25px rgba(255, 165, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .calloutContainer {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .calloutSection {
+    max-width: 100%;
+    min-width: auto;
+  }
+
+  .calloutTitle {
+    font-size: 1.5rem;
+  }
+
+  .calloutText {
+    font-size: 0.95rem;
+  }
+
+  .hero {
+    min-height: 80vh;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .crtEffect {
+    padding: 1.5rem;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+
+  .sectionTitle h2 {
+    font-size: 2rem;
+  }
+
+  .divider {
+    width: 200px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

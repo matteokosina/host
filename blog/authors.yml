@@ -1,0 +1,15 @@
+admin:
+  name: Development Team
+  title: H.O.S.T. Team
+  url: https://github.com/matteokosina/host
+  image_url: /img/logo.svg
+matteo:
+  name: Matteo Kosina
+  title: Game Dev
+  url: https://github.com/matteokosina/
+  image_url: https://github.com/matteokosina.png
+marvin:
+  name: Marvin Fuchs
+  title: Game Dev
+  url: https://github.com/habetuz/
+  image_url: https://github.com/habetuz.png
