@@ -6,7 +6,7 @@ const config = {
   title: 'H.O.S.T.',
   tagline: 'Human Operated Spacecraft Terminal - Development Blog',
   favicon: 'img/favicon.ico',
-  url: 'https://matteokosina.github.io/host',
+  url: 'https://matteokosina.github.io',
   baseUrl: '/host',
   organizationName: 'matteokosina',
   projectName: 'host',
