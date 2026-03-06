@@ -79,6 +79,10 @@ _Moving obstacles, if the rocket touches it the player looses_
 _Thrust and landing platform_
 ![POC Screenshot 0](/img/poc2.png)
 _Dynamic camera movement and first shaders_
+![Intro](/img/intro-scene.png)
+_This screenshot shows the introscene that tells the story of the game and will be shown before the first level_
+![game](/img/game.png)
+_After the introscene the game starts. Additional effects like glow etc. were added_
 
 ## Results from this week
 What the game currently offers:
