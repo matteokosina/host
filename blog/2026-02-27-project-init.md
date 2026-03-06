@@ -18,8 +18,8 @@ import TaskList from '@site/src/components/TaskList';
   },
   {
     author: 'Marvin Fuchs',
-    expectedHours: 1,
-    timeSpent: 1
+    expectedHours: 8,
+    timeSpent: 10
   }
 ]} />
 
