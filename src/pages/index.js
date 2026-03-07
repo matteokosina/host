@@ -13,6 +13,14 @@ const BLOG_POSTS = [
     image: '/host/img/blog-1.svg',
     url: '/blog/project-init',
   },
+   {
+    id: 2,
+    title: 'Week 2, Architecture and Look & Feel',
+    excerpt: 'Enhancing the architecture and visual design of H.O.S.T. to create a more immersive and engaging gaming experience.',
+    date: 'March 6, 2026',
+    image: '/host/img/blog-2.svg',
+    url: '/blog/architecture',
+  },
 ];
 
 function HomepageHero() {
