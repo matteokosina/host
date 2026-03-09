@@ -14,12 +14,12 @@ import TaskList from '@site/src/components/TaskList';
   {
     author: 'Matteo Kosina',
     expectedHours: 8,
-    timeSpent: 0
+    timeSpent: 3
   },
   {
     author: 'Marvin Fuchs',
     expectedHours: 8,
-    timeSpent: 0
+    timeSpent: 3
   }
 ]} />
 
@@ -29,30 +29,68 @@ import TaskList from '@site/src/components/TaskList';
 <TaskList data={[
   {
     id: 1,
-    title: 'Design Background image',
-    description: 'The background image holds slots for gauges and the main display and should be in pixel art',
-    owner: 'Marvin',
-    status: 'open'
+    title: 'Identify architectual tech debt',
+    description: 'Identify anti-patterns in the current architecture of the game',
+    owner: 'Marvin & Matteo',
+    status: 'done'
   },
   {
     id: 2,
-    title: 'Design Gauges',
-    description: 'Design gauges that will be used by different stats. The design should include the gauge, a indicator light (for exceeding values) and a scale',
-    owner: 'Matteo',
-    status: 'open'
+    title: 'Plan a redesigned architecture',
+    description: 'Apply the knowledge learned in class and address the anti-patterns found in the previous task',
+    owner: 'Marvin & Matteo',
+    status: 'done'
   },
   {
     id: 3,
-    title: 'Redesign graphics',
-    description: 'Use the newly created assets and refactor the codebase to use the new assetes',
-    owner: 'Matteo & Marvin',
-    status: 'open'
-  },
-  {
-    id: 4,
     title: 'Architecture Redesign',
-    description: 'Refactor to enhance separation of conecerns and adhere to SOLID principles. Use the UML diagram designed in class as guideline',
+    description: 'Refactor to enhance separation of conecerns and adhere to SOLID principles. Use the UML diagram as guideline',
     owner: 'Matteo & Marvin',
     status: 'open'
   },
 ]} />
+
+## Architecture Refactoring
+
+As the rocket landing game grew, the original implementation started to show common issues found in early Unity prototypes. Many responsibilities were handled inside a single controller, including rocket physics, landing validation, UI updates, and game state management. This resulted in tightly coupled systems that were difficult to maintain and extend.
+
+To improve the structure of the project, the architecture was redesigned using **SOLID principles** and **Separation of Concerns (SoC)**.
+
+### Separation of Concerns
+
+The main goal of the refactoring was to clearly separate different responsibilities in the game. Instead of one large controller handling everything, the system is divided into several components:
+
+- `RocketController` handles rocket physics and input.
+- `StateManager` manages game state such as landing success or failure.
+- `SceneManager` controls scene-level behavior like restarting the game.
+- `DataStorage` stores gameplay data such as speed, altitude, fuel, tilt, and heading.
+
+UI elements such as gauges, numeric displays, and indicator lights are managed by separate controllers that read their values from `DataStorage`.
+
+This separation ensures that gameplay logic is independent from the presentation layer.
+
+### Applying SOLID Principles
+
+The refactoring mainly focused on the following SOLID concepts:
+
+- **Single Responsibility Principle**  
+  Each class now has a single clear purpose, such as controlling the rocket, managing state, or displaying data.
+
+- **Open/Closed Principle**  
+  New instruments (for example gauges or indicators) can be added without modifying existing gameplay code.
+
+- **Dependency Inversion**  
+  Instead of directly updating UI elements, gameplay systems write data to `DataStorage`, which is then used by UI controllers.
+
+### Benefits
+
+This architectural redesign improves:
+
+- **Maintainability**, because responsibilities are clearly separated
+- **Extensibility**, since new UI elements can easily be added
+- **Code readability**, due to smaller and more focused classes
+
+Overall, applying SOLID principles and Separation of Concerns resulted in a more modular and scalable Unity project structure.
+The following UML diagram shows the refactored architecture:
+
+![refactored architecture](/img/refactored-architecture.jpg)
