@@ -14,12 +14,12 @@ import TaskList from '@site/src/components/TaskList';
   {
     author: 'Matteo Kosina',
     expectedHours: 8,
-    timeSpent: 3
+    timeSpent: 13
   },
   {
     author: 'Marvin Fuchs',
     expectedHours: 8,
-    timeSpent: 3
+    timeSpent: 13
   }
 ]} />
 
@@ -48,8 +48,20 @@ import TaskList from '@site/src/components/TaskList';
     owner: 'Matteo & Marvin',
     status: 'open'
   },
+  {
+    id: 4,
+    title: 'Game Music',
+    description: 'Create and implement a theme song in strudel and integrate it in unity',
+    owner: 'Matteo',
+    status: 'done'
+  },
 ]} />
 
+## Theme / Backround Song
+To make the game feel even more immersive, we worked on adding a theme song that fits into the retro, sci-fi style of the game.
+As we are both not deeply experienced in digital music creation or editing we went with a very modern way of creating music. This modern way
+is by writing code. We used the _strudel_ project to "code" a little catchy audio that can be easily looped.
+While players now play our game they will hear this song.
 ## Architecture Refactoring
 
 As the rocket landing game grew, the original implementation started to show common issues found in early Unity prototypes. Many responsibilities were handled inside a single controller, including rocket physics, landing validation, UI updates, and game state management. This resulted in tightly coupled systems that were difficult to maintain and extend.
