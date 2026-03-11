@@ -1,0 +1,23 @@
+@startuml
+package "Order 0" {
+    [DataStorage] as D
+}
+
+package "Order 1" {
+    [RocketController] as R
+    [LandingPadController] as L
+    [Gauges] as G
+}
+
+package "Order 2" {
+    [StateManager] as S
+}
+
+S --> R
+S --> L
+S --> D
+
+R --> D
+L --> D
+G --> D
+@enduml

@@ -1,0 +1,77 @@
+@startuml
+
+namespace RocketGameObject {
+    class RocketController {
+        +initialPosition : Vector2d
+        +initialVelocity : Vector2d
+        +initialTilt : float
+        +reset()
+    }
+}
+
+namespace LandingPadGameObject {
+    class LandingPadController
+}
+
+namespace SceneManager {
+    class StateManager {
+
+    }
+    note left of StateManager
+        Controlls restart and
+        successfull landing screen.
+        Resets rocket.
+    end note
+
+    class DataStorage {
+        +speed : float
+        +altitude : float
+        +fuel : float
+        +tilt : float
+        +heading : float
+        +timeToImpact : float
+        +startTime : DateTime
+    }
+
+    StateManager --* DataStorage : sets start time
+}
+
+
+class GaugeController {
+    +gaugeObject : Gauge
+    +max : float
+    +min : float
+
+    +setValue(float value)
+    +increment(float value)
+}
+
+class IndicatorController {
+    +indicator : Object
+    +color : Color
+    +state : bool
+
+    +turnOn()
+    +turnOff()
+    +toggle()
+}
+
+class NumericController {
+    +displayes : SevenSegmentDisplay[]
+
+    +setValue(int value)
+    +increment(int value)
+}
+
+class TiltHeadingController {
+    +tiltObject : Object
+    +headingObject : Object
+
+    +setTilt(float value)
+    +setHeading(float value)
+}
+
+RocketGameObject.RocketController --* SceneManager.DataStorage : writes to
+RocketGameObject.RocketController *-- SceneManager.StateManager : emits collision event
+LandingPadGameObject.LandingPadController *-- SceneManager.StateManager : emits landing event
+@enduml
