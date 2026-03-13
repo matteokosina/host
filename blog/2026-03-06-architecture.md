@@ -46,7 +46,7 @@ id: 3,
 title: 'Architecture Redesign',
 description: 'Refactor to enhance separation of conecerns and adhere to SOLID principles. Use the UML diagram as guideline',
 owner: 'Matteo & Marvin',
-status: 'open'
+status: 'done'
 },
 {
 id: 4,
