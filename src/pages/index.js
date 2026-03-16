@@ -15,11 +15,19 @@ const BLOG_POSTS = [
   },
    {
     id: 2,
-    title: 'Week 2, Architecture and Look & Feel',
+    title: 'Week 2, Architecture',
     excerpt: 'Enhancing the architecture and visual design of H.O.S.T. to create a more immersive and engaging gaming experience.',
     date: 'March 6, 2026',
     image: '/host/img/blog-2.svg',
     url: '/blog/architecture',
+  },
+  {
+    id: 3,
+    title: 'Week 3, Addictive Patterns & UI',
+    excerpt: 'Exploring addictive design patterns and enhancing the user interface of H.O.S.T. for a more engaging player experience.',
+    date: 'March 13, 2026',
+    image: '/host/img/blog-3.svg',
+    url: '/blog/addictive-patterns',
   },
 ];
 
