@@ -131,3 +131,10 @@ _This is how the updated screen looks right now. It is inspired by an spaceship 
  - we introduced a InitScene which should be run to start the game
  - additionally the gamemanager now loads LevelShared which contains all data and objects (e.g. the datastorage, state manager, camera etc.) that are used across all levels
  - it also loads level1 and starts the game
+
+## First UI idea for the Start / Menu-Screen
+
+As this game is in the techy / scify theme our first idea for the start screen in inspired by a terminal window which prompts you through the intial game start like setting the players name etc.
+It could look something like this:
+
+![UI Proposal](/img/ui-proposal.png)
