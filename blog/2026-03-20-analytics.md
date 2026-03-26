@@ -168,13 +168,19 @@ We designed the following CSV schema to track the before mentioned metrics. The 
 With the help of a python script and and `MathplotLib` we automized the evaluation and visualization of our dataset. The following diagrams show example diagrams from several analytics test-tuns.
 
 ![Level1 Scatter](/img/crash-level1-scatter.png)
+_Scatter plot indicating where crashes happened_
 
 ![Level1 HeatMap](/img/crash-level1.png)
+_Heatmap visualization of crashes in level one. Crashes happen a lot around the platform tower. This is a good sign indicating the players are able to at least get into the right direction / near the target. With this info we know that general game mechanics are probably understood by our players._
 
 ![Total HeatMap](/img/crash-total.png)
+_Total crashes accumulated accross all levels._
 
 ![Fuel Remaining](/img/fuel-remaining.png)
+_Fuel levels at the end of a play run. The high numbers with a lot of fuel left could indicate that first time players are too careful with fuel / thruster usage._
 
 ![Idle Time](/img/idle-time.png)
+_This chart shows the idle time, meaning time in which no thrusters where used. It strongly correlates with the remaining fuel levels._
 
 ![Landing Speed](/img/landing-speed.png)
+_While having quite some landings with a high landing speed (see two charts before) there are also a lot of soft landings. This shows that players may have figured out how to play the game over time._
