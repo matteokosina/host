@@ -71,3 +71,110 @@ status: 'done'
 },
 
 ]} />
+
+
+## Key Metrics to Track
+
+### 1. Player Performance
+
+These metrics help evaluate difficulty and skill progression.
+
+- **Completion Rate**
+  - Percentage of players who successfully land
+- **Crash Rate**
+  - Number of failed attempts vs total attempts
+- **Average Attempts per Success**
+  - Indicates how hard the game is
+- **Time to Complete Level**
+  - Measures efficiency and learning
+
+---
+
+### 2. Difficulty & Balancing
+
+Used to determine if the level is too easy or too hard.
+
+- **Landing Speed at Impact**
+- **Tilt Angle on Landing**
+- **Fuel Remaining**
+
+Insights:
+- High crash rate + low fuel → possibly too hard
+- High fuel remaining → too easy
+- players always having to idle a lot above the landing pad -> possibly hard
+
+---
+
+### 3. Player Behavior
+
+Tracks how players interact with the game.
+
+- **Input Frequency**
+  - How often thrusters are used
+- **Idle Time**
+  - Moments where player does nothing
+- **Thruster Click Frequency & Idle Time (Logged)**
+  - `thruster_clicks`, `thruster_clicks_per_minute`, and `idle_time_seconds` are now written per run.
+- **Crash/Landing Coordinates**
+  - `x` and `y` positions at crash or success are captured for heatmaps.
+
+Insights:
+- Frequent overcorrection → controls may feel too sensitive
+- Long idle time → confusion or lack of feedback
+
+---
+
+### 4. Pain Points (Level Analysis)
+
+Identify where players struggle the most.
+
+- **Crash Position Heatmap**
+- **Altitude at Failure**
+- **Time of Failure (early vs late)**
+- **Repeated Fail Locations**
+
+Insights:
+- Many crashes near landing pad → landing too difficult
+- Early crashes → onboarding problem
+
+---
+
+### 5. Player Satisfaction Indicators
+
+Indirect metrics to estimate satisfaction.
+
+- **Session Length**
+- **Number of Restarts**
+- **Return Rate (if tracked over time)**
+- **Win vs Quit Ratio**
+
+Insights:
+- Many restarts + eventual success → engaging challenge
+- Early quits → frustration or confusion
+
+## A look into our CSV-Schema
+
+We designed the following CSV schema to track the before mentioned metrics. The data below is just sample data:
+
+| timestamp                     | username | level  | event       | duration_ms | speed | altitude | fuel   | tilt   | heading| x     | y      | thruster_clicks | thruster_clicks_per_minute | idle_time_seconds |
+|------------------------------|----------|--------|-------------|-------------|-------|----------|--------|--------|-----------------|--------|------------------|-----------------------------|-------------------|
+| 2026-03-25T16:12:33.1847080Z | matteo   | Level1 | start_level |             |       |          |        |        |         |       |        |        | 0                | 0.00                        |                   |
+| 2026-03-25T16:12:59.4145410Z | matteo   | Level1 | crash       | 26083       | 8.73  | 8.47     | 30.55  | 59.83  | 285.52  |       | 1.79   | 8.47   | 53               | 121.92                      | 10.32             |
+| 2026-03-25T16:13:39.4299770Z | matteo   | Level1 | crash       | 38470       | 4.73  | 10.34    | 3.30   | 1.48   | 128.70  |       | -4.94  | 10.34  | 76               | 118.53                      | 17.34             |
+| 2026-03-25T16:18:45.5065040Z | Player   | Level1 | start_level |             |       |          |        |        |         |       |        |        | 0                | 0.00                        |                   |
+
+## Lets visualize
+
+With the help of a python script and and `MathplotLib` we automized the evaluation and visualization of our dataset. The following diagrams show example diagrams from several analytics test-tuns.
+
+![Level1 Scatter](/img/crash-level1-scatter.png)
+
+![Level1 HeatMap](/img/crash-level1.png)
+
+![Total HeatMap](/img/crash-total.png)
+
+![Fuel Remaining](/img/fuel-remaining.png)
+
+![Idle Time](/img/idle-time.png)
+
+![Landing Speed](/img/landing-speed.png)
