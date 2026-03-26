@@ -156,12 +156,12 @@ Insights:
 
 We designed the following CSV schema to track the before mentioned metrics. The data below is just sample data:
 
-| timestamp                     | username | level  | event       | duration_ms | speed | altitude | fuel   | tilt   | heading| x     | y      | thruster_clicks | thruster_clicks_per_minute | idle_time_seconds |
-|------------------------------|----------|--------|-------------|-------------|-------|----------|--------|--------|-----------------|--------|------------------|-----------------------------|-------------------|
-| 2026-03-25T16:12:33.1847080Z | matteo   | Level1 | start_level |             |       |          |        |        |         |       |        |        | 0                | 0.00                        |                   |
-| 2026-03-25T16:12:59.4145410Z | matteo   | Level1 | crash       | 26083       | 8.73  | 8.47     | 30.55  | 59.83  | 285.52  |       | 1.79   | 8.47   | 53               | 121.92                      | 10.32             |
-| 2026-03-25T16:13:39.4299770Z | matteo   | Level1 | crash       | 38470       | 4.73  | 10.34    | 3.30   | 1.48   | 128.70  |       | -4.94  | 10.34  | 76               | 118.53                      | 17.34             |
-| 2026-03-25T16:18:45.5065040Z | Player   | Level1 | start_level |             |       |          |        |        |         |       |        |        | 0                | 0.00                        |                   |
+| timestamp                     | username | level  | event       | duration_ms | speed | altitude | fuel   | tilt   | heading | x      | y      | thruster_clicks | thruster_clicks_per_minute | idle_time_seconds |
+|------------------------------|----------|--------|-------------|-------------|-------|----------|--------|--------|---------|--------|--------|-----------------|----------------------------|-------------------|
+| 2026-03-25T16:12:33.1847080Z | matteo   | Level1 | start_level |             |       |          |        |        |         |        |        | 0               | 0.00                       |                   |
+| 2026-03-25T16:12:59.4145410Z | matteo   | Level1 | crash       | 26083       | 8.73  | 8.47     | 30.55  | 59.83  | 285.52  | 1.79   | -4.94  | 53              | 121.92                     | 10.32             |
+| 2026-03-25T16:13:39.4299770Z | frank   | Level1 | crash       | 38470       | 4.73  | 10.34    | 3.30   | 1.48   | 128.70  | -4.94  | 10.34  | 76              | 118.53                     | 17.34             |
+| 2026-03-25T16:18:45.5065040Z | frank   | Level1 | start_level |             |       |          |        |        |         |        |        | 0               | 0.00                       |                   |
 
 ## Lets visualize
 
