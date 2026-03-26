@@ -29,6 +29,14 @@ const BLOG_POSTS = [
     image: '/host/img/blog-3.svg',
     url: '/blog/addictive-patterns',
   },
+  {
+    id: 4,
+    title: 'Week 4, Analytics',
+    excerpt: 'Adding gamestats and analytics to H.O.S.T. to track player performance and gather insights for future improvements.',
+    date: 'March 20, 2026',
+    image: '/host/img/blog-4.svg',
+    url: '/blog/analytics',
+  },
 ];
 
 function HomepageHero() {
