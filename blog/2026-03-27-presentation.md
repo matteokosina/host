@@ -1,5 +1,5 @@
 ---
-slug: analytics
+slug: final_presentation
 title: Week 05 - Final Presentation
 authors: [matteo, marvin]
 tags: [final, presentation, results]

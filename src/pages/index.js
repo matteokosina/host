@@ -37,6 +37,14 @@ const BLOG_POSTS = [
     image: '/host/img/blog-4.svg',
     url: '/blog/analytics',
   },
+  {
+    id: 5,
+    title: 'Week 5, Final Touches',
+    excerpt: 'Adding the final touches and polish to H.O.S.T. to prepare for launch.',
+    date: 'March 27, 2026',
+    image: '/host/img/blog-5.svg',
+    url: '/blog/final_presentation',
+  },
 ];
 
 function HomepageHero() {
