@@ -24,7 +24,6 @@ timeSpent: 11
 }
 ]} />
 
-## Tasks
 
 <TaskList data={[
 {
@@ -61,7 +60,7 @@ title: 'Implement return to main menu',
 description: 'It is currently not possible to return to the main menu once a level is started.',
 owner: 'Marvin',
 status: 'done'
-}
+},
 {
 id: 6,
 title: 'Create final presentation',
@@ -79,7 +78,7 @@ We now collect comprehensive analytics to better understand player behavior and 
 # Our analytics results at a glance
 ![Avg Idle Time](/img/avidle.png)
 ![Crash-Rates](/img/pies.png)
-![Remaining Fuel](/img/reminingf.png)
+![Remaining Fuel](/img/remainingf.png)
 ![Thruster Usage](/img/tclicks.png)
 ![Termination Positions](/img/thermal.png)
 
