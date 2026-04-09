@@ -71,3 +71,17 @@ status: 'done'
 },
 ]} />
 
+# Improved analytics
+We now collect comprehensive analytics to better understand player behavior and game performance. Our analytics pipeline consists of three main components: the game is hosted on itch.io, where it sends analytics data to a Google Sheet via Google Apps Script, and then we use Google Colab to evaluate the data and generate visualizations. The figure below shows the types of data we collect throughout this process.
+
+![Analytics Data](/img/data.png)
+
+# Our analytics results at a glance
+![Avg Idle Time](/img/avidle.png)
+![Crash-Rates](/img/pies.png)
+![Remaining Fuel](/img/reminingf.png)
+![Thruster Usage](/img/tclicks.png)
+![Termination Positions](/img/thermal.png)
+
+# What else? (House-Keeping tasks)
+We finalized our presentation for class, showcasing the complete development journey and results. Additionally, we expanded the game with new levels, each assigned rank names to enhance progression and player engagement. The start menu received a comprehensive UI overhaul, making navigation more intuitive and visually appealing. We successfully deployed the game to itch.io and established a dedicated game website on the platform. Throughout this process, we collected valuable user analytics and thoroughly analyzed player behavior, performance metrics, and gameplay patterns. Our findings and key learnings from this data are detailed in the final presentation, providing insights into player engagement and game performance.
